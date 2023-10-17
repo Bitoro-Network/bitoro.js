@@ -7,6 +7,7 @@ export * from './aggregator/types'
 export * from './aggregator/constants'
 export * from './aggregator/gmxCore'
 export * from './aggregator/gmxAdapter'
+export * from './aggregator/data'
 
 export type { IERC20 as IERC20Contract } from "./abi/IERC20";
 export type { LiquidityManager as LiquidityManagerContract } from './abi/LiquidityManager';
