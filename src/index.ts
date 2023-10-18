@@ -22,6 +22,7 @@ export type { VotingEscrow as VotingEscrowContract } from './abi/VotingEscrow';
 export type { ProxyFactory as AggregatorProxyFactory } from './abi/aggregator/ProxyFactory';
 export type { Reader as AggregatorReader } from './abi/aggregator/Reader';
 export type { GmxAdapter as AggregatorGmxAdapterContract } from './abi/aggregator/GmxAdapter';
+export type { IGmxPositionRouter as GmxPositionRouterContract } from './abi/aggregator/GmxPositionRouter';
 
 export { IERC20__factory } from "./abi/factories/IERC20__factory";
 export { LiquidityManager__factory } from "./abi/factories/LiquidityManager__factory";
@@ -36,4 +37,5 @@ export { VotingEscrow__factory } from "./abi/factories/VotingEscrow__factory";
 export { ProxyFactory__factory as AggregatorProxyFactory__factory } from "./abi/factories/aggregator/ProxyFactory__factory";
 export { Reader__factory as AggregatorReader__factory } from "./abi/factories/aggregator/Reader__factory";
 export { GmxAdapter__factory as AggregatorGmxAdapter__factory } from "./abi/factories/aggregator/GmxAdapter__factory";
+export { IGmxPositionRouter__factory as GmxPositionRouter__factory } from "./abi/factories/aggregator/GmxPositionRouter__factory";
 

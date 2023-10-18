@@ -1,5 +1,6 @@
 import BigNumber from 'bignumber.js'
-import { GmxTokenConfig } from './types'
+import { GmxTokenConfig, AggregatorProjectId, AggregatorSubAccount } from './types'
+import { _0 } from '../constants'
 
 export const CHAIN_ID_TO_AGGREGATOR_READER_ADDRESS: { [chainID: number]: string } = {
   // arb1
@@ -14,6 +15,11 @@ export const CHAIN_ID_TO_AGGREGATOR_FACTORY_ADDRESS: { [chainID: number]: string
 export const CHAIN_ID_TO_AGGREGATOR_VAULT_ADDRESS: { [chainID: number]: string } = {
   // arb1
   42161: '0x489ee077994B6658eAfA855C308275EAd8097C4A'
+}
+
+export const CHAIN_ID_TO_AGGREGATOR_POSITION_MANAGER_ADDRESS: { [chainID: number]: string } = {
+  // arb1
+  42161: '0x75E42e6f01baf1D6022bEa862A28774a9f8a4A0C'
 }
 
 export const CHAIN_ID_TO_AGGREGATOR_POSITION_ROUTER_ADDRESS: { [chainID: number]: string } = {
@@ -130,4 +136,30 @@ export const GMX_TOKENS: { [chainID: number]: GmxTokenConfig[] } = {
       bitoroAssetId: undefined
     }
   ]
+}
+
+export const MOCK_SUB_ACCOUNT: AggregatorSubAccount = {
+  proxyAddress: '',
+  projectId: AggregatorProjectId.Gmx,
+  account: '',
+  collateralTokenAddress: '',
+  assetTokenAddress: '',
+  isLong: true,
+  isLiquidating: false,
+  cumulativeDebt: _0,
+  cumulativeFee: _0,
+  debtEntryFunding: _0,
+  proxyCollateralBalance: _0,
+  proxyEthBalance: _0,
+  gmx: {
+    collateralTokenAddress: '',
+    assetTokenAddress: '',
+    isLong: true,
+    sizeUsd: _0,
+    collateralUsd: _0,
+    lastIncreasedTime: 0,
+    entryPrice: _0,
+    entryFundingRate: _0
+  },
+  gmxOrders: []
 }
