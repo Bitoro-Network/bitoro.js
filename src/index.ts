@@ -38,4 +38,4 @@ export { ProxyFactory__factory as AggregatorProxyFactory__factory } from "./abi/
 export { Reader__factory as AggregatorReader__factory } from "./abi/factories/aggregator/Reader__factory";
 export { GmxAdapter__factory as AggregatorGmxAdapter__factory } from "./abi/factories/aggregator/GmxAdapter__factory";
 export { IGmxPositionRouter__factory as GmxPositionRouter__factory } from "./abi/factories/aggregator/GmxPositionRouter__factory";
-
+export { IGmxVault__factory as GmxVault__factory } from "./abi/factories/aggregator/GmxVault__factory";

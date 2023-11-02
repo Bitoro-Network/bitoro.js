@@ -4,12 +4,12 @@ import { _0 } from '../constants'
 
 export const CHAIN_ID_TO_AGGREGATOR_READER_ADDRESS: { [chainID: number]: string } = {
   // arb1
-  42161: '0x225aE665fD6E2C73D9A715Ad8F5b2Af05549fC9f'
+  42161: '0xFbAC65e65c8eb1b5822fC369f0eb2d27D28D0045'
 }
 
 export const CHAIN_ID_TO_AGGREGATOR_FACTORY_ADDRESS: { [chainID: number]: string } = {
   // arb1
-  42161: '0x2ff2f1D9826ae2410979ae19B88c361073Ab0918'
+  42161: '0x2DDfD68aF06365163c6636501bdb89722f80f11c'
 }
 
 export const CHAIN_ID_TO_AGGREGATOR_VAULT_ADDRESS: { [chainID: number]: string } = {
