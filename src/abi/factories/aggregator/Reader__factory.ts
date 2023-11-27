@@ -124,6 +124,11 @@ const _abi = [
             type: "uint256",
           },
           {
+            internalType: "uint256",
+            name: "priceImpactFee",
+            type: "uint256",
+          },
+          {
             components: [
               {
                 internalType: "uint256",
@@ -291,6 +296,11 @@ const _abi = [
           {
             internalType: "uint256",
             name: "proxyEthBalance",
+            type: "uint256",
+          },
+          {
+            internalType: "uint256",
+            name: "priceImpactFee",
             type: "uint256",
           },
           {

@@ -4,12 +4,12 @@ import { _0 } from '../constants'
 
 export const CHAIN_ID_TO_AGGREGATOR_READER_ADDRESS: { [chainID: number]: string } = {
   // arb1
-  42161: '0xFbAC65e65c8eb1b5822fC369f0eb2d27D28D0045'
+  42161: '0xC788d41b133Ae70f20518B5215B84f6126B5DbD5'
 }
 
 export const CHAIN_ID_TO_AGGREGATOR_FACTORY_ADDRESS: { [chainID: number]: string } = {
   // arb1
-  42161: '0x2DDfD68aF06365163c6636501bdb89722f80f11c'
+  42161: '0x5C98E98D149e5b813D16FE89E6373bFD4503445f'
 }
 
 export const CHAIN_ID_TO_AGGREGATOR_VAULT_ADDRESS: { [chainID: number]: string } = {
@@ -151,6 +151,7 @@ export const MOCK_SUB_ACCOUNT: AggregatorSubAccount = {
   debtEntryFunding: _0,
   proxyCollateralBalance: _0,
   proxyEthBalance: _0,
+  priceImpactFee: _0,
   gmx: {
     collateralTokenAddress: '',
     assetTokenAddress: '',

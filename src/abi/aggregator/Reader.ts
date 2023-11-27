@@ -90,6 +90,7 @@ export declare namespace Reader {
     debtEntryFunding: PromiseOrValue<BigNumberish>;
     proxyCollateralBalance: PromiseOrValue<BigNumberish>;
     proxyEthBalance: PromiseOrValue<BigNumberish>;
+    priceImpactFee: PromiseOrValue<BigNumberish>;
     gmx: Reader.GmxCoreAccountStruct;
     gmxOrders: Reader.GmxAdapterOrderStruct[];
   };
@@ -101,6 +102,7 @@ export declare namespace Reader {
     string,
     boolean,
     boolean,
+    BigNumber,
     BigNumber,
     BigNumber,
     BigNumber,
@@ -120,6 +122,7 @@ export declare namespace Reader {
     debtEntryFunding: BigNumber;
     proxyCollateralBalance: BigNumber;
     proxyEthBalance: BigNumber;
+    priceImpactFee: BigNumber;
     gmx: Reader.GmxCoreAccountStructOutput;
     gmxOrders: Reader.GmxAdapterOrderStructOutput[];
   };

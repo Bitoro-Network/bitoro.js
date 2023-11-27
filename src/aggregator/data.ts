@@ -264,6 +264,7 @@ function _parseGmxAdapterSubAccounts(
       debtEntryFunding: fromWei(i.debtEntryFunding),
       proxyCollateralBalance: fromUnit(i.proxyCollateralBalance, gmxCollateral.decimals),
       proxyEthBalance: fromWei(i.proxyEthBalance),
+      priceImpactFee: fromUnit(i.priceImpactFee, gmxCollateral.decimals),
 
       // gmx
       gmx: _parseGmxCoreAccount(i),
