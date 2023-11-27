@@ -44,6 +44,7 @@ export interface AggregatorSubAccount {
   debtEntryFunding: BigNumber
   proxyCollateralBalance: BigNumber
   proxyEthBalance: BigNumber
+  priceImpactFee: BigNumber
 
   // if gmx
   gmx: GmxCoreAccount
