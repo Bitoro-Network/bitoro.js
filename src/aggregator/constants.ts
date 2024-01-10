@@ -4,41 +4,56 @@ import { _0 } from '../constants'
 
 export const CHAIN_ID_TO_AGGREGATOR_READER_ADDRESS: { [chainID: number]: string } = {
   // arb1
-  42161: '0xC788d41b133Ae70f20518B5215B84f6126B5DbD5'
+  42161: '0xC788d41b133Ae70f20518B5215B84f6126B5DbD5',
+  // avalanche c-chain
+  43114: '0x69A068ddE126263aB58d4377340dfFdf65c8fdC4'
 }
 
 export const CHAIN_ID_TO_AGGREGATOR_FACTORY_ADDRESS: { [chainID: number]: string } = {
   // arb1
-  42161: '0x5C98E98D149e5b813D16FE89E6373bFD4503445f'
+  42161: '0x5C98E98D149e5b813D16FE89E6373bFD4503445f',
+  // avalanche c-chain
+  43114: '0xEb89bce768613d9c6434C994c0Bfc0eE1b9dE588'
 }
 
 export const CHAIN_ID_TO_AGGREGATOR_VAULT_ADDRESS: { [chainID: number]: string } = {
   // arb1
-  42161: '0x489ee077994B6658eAfA855C308275EAd8097C4A'
+  42161: '0x489ee077994B6658eAfA855C308275EAd8097C4A',
+  // avalanche c-chain
+  43114: '0x9ab2De34A33fB459b538c43f251eB825645e8595'
 }
 
 export const CHAIN_ID_TO_AGGREGATOR_POSITION_MANAGER_ADDRESS: { [chainID: number]: string } = {
   // arb1
-  42161: '0x75E42e6f01baf1D6022bEa862A28774a9f8a4A0C'
+  42161: '0x75E42e6f01baf1D6022bEa862A28774a9f8a4A0C',
+  // avalanche c-chain
+  43114: '0xA21B83E579f4315951bA658654c371520BDcB866'
 }
 
 export const CHAIN_ID_TO_AGGREGATOR_POSITION_ROUTER_ADDRESS: { [chainID: number]: string } = {
   // arb1
-  42161: '0xb87a436B93fFE9D75c5cFA7bAcFff96430b09868'
+  42161: '0xb87a436B93fFE9D75c5cFA7bAcFff96430b09868',
+  // avalanche c-chain
+  43114: '0xffF6D276Bc37c61A23f06410Dce4A400f66420f8'
 }
 
 export const CHAIN_ID_TO_AGGREGATOR_ORDER_BOOK_ADDRESS: { [chainID: number]: string } = {
   // arb1
-  42161: '0x09f77E8A13De9a35a7231028187e9fD5DB8a2ACB'
+  42161: '0x09f77E8A13De9a35a7231028187e9fD5DB8a2ACB',
+  // avalanche c-chain
+  43114: '0x4296e307f108B2f583FF2F7B7270ee7831574Ae5'
 }
 
 export const CHAIN_ID_TO_AGGREGATOR_ROUTER_ADDRESS: { [chainID: number]: string } = {
   // arb1
-  42161: '0xaBBc5F99639c9B6bCb58544ddf04EFA6802F4064'
+  42161: '0xaBBc5F99639c9B6bCb58544ddf04EFA6802F4064',
+  // avalanche c-chain
+  43114: '0x5F719c2F1095F7B9fc68a68e35B51194f4b6abe8'
 }
 
 export const CHAIN_ID_TO_AGGREGATOR_SHORT_FUNDING_ASSET_ID: { [chainID: number]: number } = {
-  42161: 3
+  42161: 3, // eth
+  43114: 5, // avax
 }
 
 export const GMX_BASIS_POINTS_DECIMALS = 4
@@ -135,6 +150,59 @@ export const GMX_TOKENS: { [chainID: number]: GmxTokenConfig[] } = {
       isNative: false,
       bitoroAssetId: undefined
     }
+  ],
+  // avalanche c-chain
+  43114: [
+    {
+      symbol: 'AVAX',
+      decimals: 18,
+      address: '0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7',
+      isAsset: true,
+      isShortable: true,
+      isStable: false,
+      isNative: true,
+      bitoroAssetId: 5
+    },
+    {
+      symbol: 'WETH.e',
+      decimals: 18,
+      address: '0x49D5c2BdFfac6CE2BFdB6640F4F80f226bc10bAB',
+      isAsset: true,
+      isShortable: true,
+      isStable: false,
+      isNative: false,
+      bitoroAssetId: 3
+    },
+    {
+      symbol: 'WBTC.e',
+      decimals: 8,
+      address: '0x50b7545627a5162F82A992c33b87aDc75187B218',
+      isAsset: true,
+      isShortable: true,
+      isStable: false,
+      isNative: false,
+      bitoroAssetId: 4
+    },
+    {
+      symbol: 'USDC.e',
+      decimals: 6,
+      address: '0xA7D7079b0FEaD91F3e65f86E8915Cb59c1a4C664',
+      isAsset: false,
+      isShortable: false,
+      isStable: true,
+      isNative: false,
+      bitoroAssetId: 0
+    },
+    {
+      symbol: 'USDC',
+      decimals: 6,
+      address: '0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E',
+      isAsset: false,
+      isShortable: false,
+      isStable: true,
+      isNative: false,
+      bitoroAssetId: 9
+    },
   ]
 }
 
