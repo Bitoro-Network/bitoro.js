@@ -471,6 +471,12 @@ const _abi = [
       },
       {
         indexed: false,
+        internalType: "uint256",
+        name: "priceImpactFee",
+        type: "uint256",
+      },
+      {
+        indexed: false,
         internalType: "bool",
         name: "isLiquidation",
         type: "bool",
@@ -502,6 +508,86 @@ const _abi = [
     ],
     name: "Withdraw",
     type: "event",
+  },
+  {
+    inputs: [],
+    name: "bitoroAccountState",
+    outputs: [
+      {
+        components: [
+          {
+            internalType: "address",
+            name: "account",
+            type: "address",
+          },
+          {
+            internalType: "uint256",
+            name: "cumulativeDebt",
+            type: "uint256",
+          },
+          {
+            internalType: "uint256",
+            name: "cumulativeFee",
+            type: "uint256",
+          },
+          {
+            internalType: "uint256",
+            name: "debtEntryFunding",
+            type: "uint256",
+          },
+          {
+            internalType: "address",
+            name: "collateralToken",
+            type: "address",
+          },
+          {
+            internalType: "address",
+            name: "indexToken",
+            type: "address",
+          },
+          {
+            internalType: "uint8",
+            name: "deprecated0",
+            type: "uint8",
+          },
+          {
+            internalType: "bool",
+            name: "isLong",
+            type: "bool",
+          },
+          {
+            internalType: "uint8",
+            name: "collateralDecimals",
+            type: "uint8",
+          },
+          {
+            internalType: "uint256",
+            name: "liquidationFee",
+            type: "uint256",
+          },
+          {
+            internalType: "bool",
+            name: "isLiquidating",
+            type: "bool",
+          },
+          {
+            internalType: "uint256",
+            name: "priceImpactFee",
+            type: "uint256",
+          },
+          {
+            internalType: "bytes32[18]",
+            name: "reserved",
+            type: "bytes32[18]",
+          },
+        ],
+        internalType: "struct AccountState",
+        name: "",
+        type: "tuple",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
   },
   {
     inputs: [
@@ -676,81 +762,6 @@ const _abi = [
     name: "liquidatePosition",
     outputs: [],
     stateMutability: "payable",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "bitoroAccountState",
-    outputs: [
-      {
-        components: [
-          {
-            internalType: "address",
-            name: "account",
-            type: "address",
-          },
-          {
-            internalType: "uint256",
-            name: "cumulativeDebt",
-            type: "uint256",
-          },
-          {
-            internalType: "uint256",
-            name: "cumulativeFee",
-            type: "uint256",
-          },
-          {
-            internalType: "uint256",
-            name: "debtEntryFunding",
-            type: "uint256",
-          },
-          {
-            internalType: "address",
-            name: "collateralToken",
-            type: "address",
-          },
-          {
-            internalType: "address",
-            name: "indexToken",
-            type: "address",
-          },
-          {
-            internalType: "uint8",
-            name: "deprecated0",
-            type: "uint8",
-          },
-          {
-            internalType: "bool",
-            name: "isLong",
-            type: "bool",
-          },
-          {
-            internalType: "uint8",
-            name: "collateralDecimals",
-            type: "uint8",
-          },
-          {
-            internalType: "uint256",
-            name: "liquidationFee",
-            type: "uint256",
-          },
-          {
-            internalType: "bool",
-            name: "isLiquidating",
-            type: "bool",
-          },
-          {
-            internalType: "bytes32[18]",
-            name: "reserved",
-            type: "bytes32[18]",
-          },
-        ],
-        internalType: "struct AccountState",
-        name: "",
-        type: "tuple",
-      },
-    ],
-    stateMutability: "view",
     type: "function",
   },
   {
