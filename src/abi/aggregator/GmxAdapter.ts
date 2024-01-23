@@ -99,6 +99,7 @@ export type AccountStateStruct = {
   collateralDecimals: PromiseOrValue<BigNumberish>;
   liquidationFee: PromiseOrValue<BigNumberish>;
   isLiquidating: PromiseOrValue<boolean>;
+  priceImpactFee: PromiseOrValue<BigNumberish>;
   reserved: PromiseOrValue<BytesLike>[];
 };
 
@@ -114,6 +115,7 @@ export type AccountStateStructOutput = [
   number,
   BigNumber,
   boolean,
+  BigNumber,
   string[]
 ] & {
   account: string;
@@ -127,6 +129,7 @@ export type AccountStateStructOutput = [
   collateralDecimals: number;
   liquidationFee: BigNumber;
   isLiquidating: boolean;
+  priceImpactFee: BigNumber;
   reserved: string[];
 };
 
@@ -162,6 +165,7 @@ export declare namespace IGmxVault {
 
 export interface GmxAdapterInterface extends utils.Interface {
   functions: {
+    "bitoroAccountState()": FunctionFragment;
     "cancelOrders(bytes32[])": FunctionFragment;
     "cancelTimeoutOrders(bytes32[])": FunctionFragment;
     "closePosition(uint256,uint256,uint96,uint96,uint96,uint8)": FunctionFragment;
@@ -170,7 +174,6 @@ export interface GmxAdapterInterface extends utils.Interface {
     "getTpslOrderKeys(bytes32)": FunctionFragment;
     "initialize(uint256,address,address,address,address,bool)": FunctionFragment;
     "liquidatePosition(uint256)": FunctionFragment;
-    "bitoroAccountState()": FunctionFragment;
     "openPosition(address,uint256,uint256,uint256,uint256,uint96,uint96,uint96,uint8)": FunctionFragment;
     "updateOrder(bytes32,uint256,uint256,uint256,bool)": FunctionFragment;
     "withdraw()": FunctionFragment;
@@ -178,6 +181,7 @@ export interface GmxAdapterInterface extends utils.Interface {
 
   getFunction(
     nameOrSignatureOrTopic:
+      | "bitoroAccountState"
       | "cancelOrders"
       | "cancelTimeoutOrders"
       | "closePosition"
@@ -186,12 +190,15 @@ export interface GmxAdapterInterface extends utils.Interface {
       | "getTpslOrderKeys"
       | "initialize"
       | "liquidatePosition"
-      | "bitoroAccountState"
       | "openPosition"
       | "updateOrder"
       | "withdraw"
   ): FunctionFragment;
 
+  encodeFunctionData(
+    functionFragment: "bitoroAccountState",
+    values?: undefined
+  ): string;
   encodeFunctionData(
     functionFragment: "cancelOrders",
     values: [PromiseOrValue<BytesLike>[]]
@@ -239,10 +246,6 @@ export interface GmxAdapterInterface extends utils.Interface {
     values: [PromiseOrValue<BigNumberish>]
   ): string;
   encodeFunctionData(
-    functionFragment: "bitoroAccountState",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
     functionFragment: "openPosition",
     values: [
       PromiseOrValue<string>,
@@ -268,6 +271,10 @@ export interface GmxAdapterInterface extends utils.Interface {
   ): string;
   encodeFunctionData(functionFragment: "withdraw", values?: undefined): string;
 
+  decodeFunctionResult(
+    functionFragment: "bitoroAccountState",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(
     functionFragment: "cancelOrders",
     data: BytesLike
@@ -295,10 +302,6 @@ export interface GmxAdapterInterface extends utils.Interface {
     data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: "bitoroAccountState",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
     functionFragment: "openPosition",
     data: BytesLike
   ): Result;
@@ -320,7 +323,7 @@ export interface GmxAdapterInterface extends utils.Interface {
     "RepayAsset(uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint256)": EventFragment;
     "SetBoostRate(uint256,uint256)": EventFragment;
     "SetLiquidityPool(address,address)": EventFragment;
-    "Withdraw(uint256,uint256,bool,uint256,uint256,uint256,uint256)": EventFragment;
+    "Withdraw(uint256,uint256,uint256,bool,uint256,uint256,uint256,uint256)": EventFragment;
   };
 
   getEvent(nameOrSignatureOrTopic: "AddPendingOrder"): EventFragment;
@@ -495,6 +498,7 @@ export type SetLiquidityPoolEventFilter =
 export interface WithdrawEventObject {
   cumulativeDebt: BigNumber;
   cumulativeFee: BigNumber;
+  priceImpactFee: BigNumber;
   isLiquidation: boolean;
   balance: BigNumber;
   userWithdrawal: BigNumber;
@@ -502,7 +506,16 @@ export interface WithdrawEventObject {
   paidFee: BigNumber;
 }
 export type WithdrawEvent = TypedEvent<
-  [BigNumber, BigNumber, boolean, BigNumber, BigNumber, BigNumber, BigNumber],
+  [
+    BigNumber,
+    BigNumber,
+    BigNumber,
+    boolean,
+    BigNumber,
+    BigNumber,
+    BigNumber,
+    BigNumber
+  ],
   WithdrawEventObject
 >;
 
@@ -535,6 +548,10 @@ export interface GmxAdapter extends BaseContract {
   removeListener: OnEvent<this>;
 
   functions: {
+    bitoroAccountState(
+      overrides?: CallOverrides
+    ): Promise<[AccountStateStructOutput]>;
+
     cancelOrders(
       keys: PromiseOrValue<BytesLike>[],
       overrides?: Overrides & { from?: PromiseOrValue<string> }
@@ -587,10 +604,6 @@ export interface GmxAdapter extends BaseContract {
       overrides?: PayableOverrides & { from?: PromiseOrValue<string> }
     ): Promise<ContractTransaction>;
 
-    bitoroAccountState(
-      overrides?: CallOverrides
-    ): Promise<[AccountStateStructOutput]>;
-
     openPosition(
       swapInToken: PromiseOrValue<string>,
       swapInAmount: PromiseOrValue<BigNumberish>,
@@ -617,6 +630,10 @@ export interface GmxAdapter extends BaseContract {
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<ContractTransaction>;
   };
+
+  bitoroAccountState(
+    overrides?: CallOverrides
+  ): Promise<AccountStateStructOutput>;
 
   cancelOrders(
     keys: PromiseOrValue<BytesLike>[],
@@ -670,8 +687,6 @@ export interface GmxAdapter extends BaseContract {
     overrides?: PayableOverrides & { from?: PromiseOrValue<string> }
   ): Promise<ContractTransaction>;
 
-  bitoroAccountState(overrides?: CallOverrides): Promise<AccountStateStructOutput>;
-
   openPosition(
     swapInToken: PromiseOrValue<string>,
     swapInAmount: PromiseOrValue<BigNumberish>,
@@ -699,6 +714,10 @@ export interface GmxAdapter extends BaseContract {
   ): Promise<ContractTransaction>;
 
   callStatic: {
+    bitoroAccountState(
+      overrides?: CallOverrides
+    ): Promise<AccountStateStructOutput>;
+
     cancelOrders(
       keys: PromiseOrValue<BytesLike>[],
       overrides?: CallOverrides
@@ -750,10 +769,6 @@ export interface GmxAdapter extends BaseContract {
       liquidatePrice: PromiseOrValue<BigNumberish>,
       overrides?: CallOverrides
     ): Promise<void>;
-
-    bitoroAccountState(
-      overrides?: CallOverrides
-    ): Promise<AccountStateStructOutput>;
 
     openPosition(
       swapInToken: PromiseOrValue<string>,
@@ -902,9 +917,10 @@ export interface GmxAdapter extends BaseContract {
       newLiquidityPool?: null
     ): SetLiquidityPoolEventFilter;
 
-    "Withdraw(uint256,uint256,bool,uint256,uint256,uint256,uint256)"(
+    "Withdraw(uint256,uint256,uint256,bool,uint256,uint256,uint256,uint256)"(
       cumulativeDebt?: null,
       cumulativeFee?: null,
+      priceImpactFee?: null,
       isLiquidation?: null,
       balance?: null,
       userWithdrawal?: null,
@@ -914,6 +930,7 @@ export interface GmxAdapter extends BaseContract {
     Withdraw(
       cumulativeDebt?: null,
       cumulativeFee?: null,
+      priceImpactFee?: null,
       isLiquidation?: null,
       balance?: null,
       userWithdrawal?: null,
@@ -923,6 +940,8 @@ export interface GmxAdapter extends BaseContract {
   };
 
   estimateGas: {
+    bitoroAccountState(overrides?: CallOverrides): Promise<BigNumber>;
+
     cancelOrders(
       keys: PromiseOrValue<BytesLike>[],
       overrides?: Overrides & { from?: PromiseOrValue<string> }
@@ -967,8 +986,6 @@ export interface GmxAdapter extends BaseContract {
       overrides?: PayableOverrides & { from?: PromiseOrValue<string> }
     ): Promise<BigNumber>;
 
-    bitoroAccountState(overrides?: CallOverrides): Promise<BigNumber>;
-
     openPosition(
       swapInToken: PromiseOrValue<string>,
       swapInAmount: PromiseOrValue<BigNumberish>,
@@ -997,6 +1014,10 @@ export interface GmxAdapter extends BaseContract {
   };
 
   populateTransaction: {
+    bitoroAccountState(
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
     cancelOrders(
       keys: PromiseOrValue<BytesLike>[],
       overrides?: Overrides & { from?: PromiseOrValue<string> }
@@ -1042,8 +1063,6 @@ export interface GmxAdapter extends BaseContract {
       liquidatePrice: PromiseOrValue<BigNumberish>,
       overrides?: PayableOverrides & { from?: PromiseOrValue<string> }
     ): Promise<PopulatedTransaction>;
-
-    bitoroAccountState(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     openPosition(
       swapInToken: PromiseOrValue<string>,
