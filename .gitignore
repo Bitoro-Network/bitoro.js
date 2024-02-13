@@ -1,6 +1,6 @@
 node_modules
 coverage
-dist
+# dist
 npm-debug.log
 package-lock.json
 yarn.lock
