@@ -151,6 +151,19 @@ export const GMX_TOKENS: { [chainID: number]: GmxTokenConfig[] } = {
       bitoroAssetId: undefined
     }
   ],
+  // arbitrum sepolia testnet
+  421614: [
+    {
+      symbol: 'USDC',
+      decimals: 6,
+      address: '0x75faf114eafb1BDbe2F0316DF893fd58CE46AA4d',
+      isAsset: false,
+      isShortable: false,
+      isStable: true,
+      isNative: false,
+      bitoroAssetId: 9
+    },
+  ],
   // avalanche c-chain
   43114: [
     {
