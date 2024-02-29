@@ -50,7 +50,7 @@ exports.CHAIN_ID_TO_AGGREGATOR_ROUTER_ADDRESS = {
     43114: '0x5F719c2F1095F7B9fc68a68e35B51194f4b6abe8'
 };
 exports.CHAIN_ID_TO_AGGREGATOR_SHORT_FUNDING_ASSET_ID = {
-    42161: 3,
+    42161: 3, // eth
     43114: 5, // avax
 };
 exports.GMX_BASIS_POINTS_DECIMALS = 4;
@@ -180,6 +180,16 @@ exports.GMX_TOKENS = {
             isStable: false,
             isNative: false,
             bitoroAssetId: 3
+        },
+        {
+            symbol: 'BTC.b',
+            decimals: 8,
+            address: '0x152b9d0FdC40C096757F570A51E494bd4b943E50',
+            isAsset: true,
+            isShortable: true,
+            isStable: false,
+            isNative: false,
+            bitoroAssetId: 12
         },
         {
             symbol: 'WBTC.e',
