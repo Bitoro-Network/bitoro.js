@@ -211,6 +211,19 @@ exports.GMX_TOKENS = {
             isNative: false,
             bitoroAssetId: 9
         },
+    ],
+    // polygon
+    137: [
+        {
+            symbol: 'USDC',
+            decimals: 6,
+            address: '0x3c499c542cef5e3811e1192ce70d8cc03d5c3359',
+            isAsset: false,
+            isShortable: false,
+            isStable: true,
+            isNative: false,
+            bitoroAssetId: 9
+        },
     ]
 };
 exports.MOCK_SUB_ACCOUNT = {
