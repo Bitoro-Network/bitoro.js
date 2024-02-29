@@ -187,6 +187,16 @@ export const GMX_TOKENS: { [chainID: number]: GmxTokenConfig[] } = {
       bitoroAssetId: 3
     },
     {
+      symbol: 'BTC.b',
+      decimals: 8,
+      address: '0x152b9d0FdC40C096757F570A51E494bd4b943E50',
+      isAsset: true,
+      isShortable: true,
+      isStable: false,
+      isNative: false,
+      bitoroAssetId: 12
+    },
+    {
       symbol: 'WBTC.e',
       decimals: 8,
       address: '0x50b7545627a5162F82A992c33b87aDc75187B218',
