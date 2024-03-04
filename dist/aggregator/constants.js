@@ -234,6 +234,19 @@ exports.GMX_TOKENS = {
             isNative: false,
             bitoroAssetId: 9
         },
+    ],
+    // optimism
+    10: [
+        {
+            symbol: 'USDC',
+            decimals: 6,
+            address: '0x0b2c639c533813f4aa9d7837caf62653d097ff85',
+            isAsset: false,
+            isShortable: false,
+            isStable: true,
+            isNative: false,
+            bitoroAssetId: 9
+        },
     ]
 };
 exports.MOCK_SUB_ACCOUNT = {
