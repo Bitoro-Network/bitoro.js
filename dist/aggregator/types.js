@@ -5,14 +5,14 @@ var AggregatorProjectId;
 (function (AggregatorProjectId) {
     AggregatorProjectId[AggregatorProjectId["Invalid"] = 0] = "Invalid";
     AggregatorProjectId[AggregatorProjectId["Gmx"] = 1] = "Gmx";
-})(AggregatorProjectId = exports.AggregatorProjectId || (exports.AggregatorProjectId = {}));
+})(AggregatorProjectId || (exports.AggregatorProjectId = AggregatorProjectId = {}));
 var AggregatorOrderCategory;
 (function (AggregatorOrderCategory) {
     AggregatorOrderCategory[AggregatorOrderCategory["None"] = 0] = "None";
     AggregatorOrderCategory[AggregatorOrderCategory["Open"] = 1] = "Open";
     AggregatorOrderCategory[AggregatorOrderCategory["Close"] = 2] = "Close";
     AggregatorOrderCategory[AggregatorOrderCategory["Liquidate"] = 3] = "Liquidate";
-})(AggregatorOrderCategory = exports.AggregatorOrderCategory || (exports.AggregatorOrderCategory = {}));
+})(AggregatorOrderCategory || (exports.AggregatorOrderCategory = AggregatorOrderCategory = {}));
 //////////////////////////////////////////////////////////////
 // GMX Core
 var GmxAdapterOrderReceiver;
@@ -21,5 +21,5 @@ var GmxAdapterOrderReceiver;
     GmxAdapterOrderReceiver[GmxAdapterOrderReceiver["MarketDecreasing"] = 1] = "MarketDecreasing";
     GmxAdapterOrderReceiver[GmxAdapterOrderReceiver["LimitIncreasing"] = 2] = "LimitIncreasing";
     GmxAdapterOrderReceiver[GmxAdapterOrderReceiver["LimitDecreasing"] = 3] = "LimitDecreasing";
-})(GmxAdapterOrderReceiver = exports.GmxAdapterOrderReceiver || (exports.GmxAdapterOrderReceiver = {}));
+})(GmxAdapterOrderReceiver || (exports.GmxAdapterOrderReceiver = GmxAdapterOrderReceiver = {}));
 //# sourceMappingURL=types.js.map

@@ -70,11 +70,11 @@ export declare enum OrderType {
     Rebalance = 4
 }
 export declare enum PositionOrderFlags {
-    OpenPosition = 128,
-    MarketOrder = 64,
-    WithdrawAllIfEmpty = 32,
-    TriggerOrder = 16,
-    TpSlStrategy = 8,
+    OpenPosition = 128,// this flag means openPosition; otherwise closePosition
+    MarketOrder = 64,// this flag means ignore limitPrice
+    WithdrawAllIfEmpty = 32,// this flag means auto withdraw all collateral if position.size == 0
+    TriggerOrder = 16,// this flag means this is a trigger order (ex: stop-loss order). otherwise this is a limit order (ex: take-profit order)
+    TpSlStrategy = 8,// for open-position-order, this flag auto place take-profit and stop-loss orders when open-position-order fills.
     ShouldReachMinProfit = 4
 }
 export declare const PreMinedTokenTotalSupply = "1000000000000000000";

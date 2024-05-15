@@ -29,7 +29,7 @@ var InsufficientLiquidityType;
     InsufficientLiquidityType[InsufficientLiquidityType["AggregatorLimitedCredit"] = 1] = "AggregatorLimitedCredit";
     InsufficientLiquidityType[InsufficientLiquidityType["AggregatorLimitedMaxPosition"] = 2] = "AggregatorLimitedMaxPosition";
     InsufficientLiquidityType[InsufficientLiquidityType["SwapExceedsCurrentAsset"] = 3] = "SwapExceedsCurrentAsset";
-})(InsufficientLiquidityType = exports.InsufficientLiquidityType || (exports.InsufficientLiquidityType = {}));
+})(InsufficientLiquidityType || (exports.InsufficientLiquidityType = InsufficientLiquidityType = {}));
 /**
  * Indicates that calling convention error or bugs happened.
  */
