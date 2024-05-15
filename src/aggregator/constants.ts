@@ -151,6 +151,19 @@ export const GMX_TOKENS: { [chainID: number]: GmxTokenConfig[] } = {
       bitoroAssetId: undefined
     }
   ],
+  // arbitrum sepolia testnet
+  421614: [
+    {
+      symbol: 'USDC',
+      decimals: 6,
+      address: '0x75faf114eafb1BDbe2F0316DF893fd58CE46AA4d',
+      isAsset: false,
+      isShortable: false,
+      isStable: true,
+      isNative: false,
+      bitoroAssetId: 9
+    },
+  ],
   // avalanche c-chain
   43114: [
     {
@@ -172,6 +185,16 @@ export const GMX_TOKENS: { [chainID: number]: GmxTokenConfig[] } = {
       isStable: false,
       isNative: false,
       bitoroAssetId: 3
+    },
+    {
+      symbol: 'BTC.b',
+      decimals: 8,
+      address: '0x152b9d0FdC40C096757F570A51E494bd4b943E50',
+      isAsset: true,
+      isShortable: true,
+      isStable: false,
+      isNative: false,
+      bitoroAssetId: 12
     },
     {
       symbol: 'WBTC.e',
@@ -197,6 +220,32 @@ export const GMX_TOKENS: { [chainID: number]: GmxTokenConfig[] } = {
       symbol: 'USDC',
       decimals: 6,
       address: '0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E',
+      isAsset: false,
+      isShortable: false,
+      isStable: true,
+      isNative: false,
+      bitoroAssetId: 9
+    },
+  ],
+  // polygon
+  137: [
+    {
+      symbol: 'USDC',
+      decimals: 6,
+      address: '0x3c499c542cef5e3811e1192ce70d8cc03d5c3359',
+      isAsset: false,
+      isShortable: false,
+      isStable: true,
+      isNative: false,
+      bitoroAssetId: 9
+    },
+  ],
+  // optimism
+  10: [
+    {
+      symbol: 'USDC',
+      decimals: 6,
+      address: '0x0b2c639c533813f4aa9d7837caf62653d097ff85',
       isAsset: false,
       isShortable: false,
       isStable: true,
