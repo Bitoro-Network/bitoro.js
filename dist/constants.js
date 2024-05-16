@@ -20,7 +20,7 @@ exports._1 = new bignumber_js_1.default('1');
 exports._2 = new bignumber_js_1.default('2');
 exports._3 = new bignumber_js_1.default('3');
 exports.MAIN_CHAIN_IDS = [
-    421611, // arb rinkeby
+    421611,
     42161 // arb1
 ];
 exports.CHAIN_ID_TO_PROTOCOL_OWNED_LIQUIDITY_ADDRESS = {
@@ -150,7 +150,7 @@ var OrderType;
     OrderType[OrderType["Liquidity"] = 2] = "Liquidity";
     OrderType[OrderType["Withdrawal"] = 3] = "Withdrawal";
     OrderType[OrderType["Rebalance"] = 4] = "Rebalance";
-})(OrderType || (exports.OrderType = OrderType = {}));
+})(OrderType = exports.OrderType || (exports.OrderType = {}));
 var PositionOrderFlags;
 (function (PositionOrderFlags) {
     PositionOrderFlags[PositionOrderFlags["OpenPosition"] = 128] = "OpenPosition";
@@ -160,12 +160,12 @@ var PositionOrderFlags;
     PositionOrderFlags[PositionOrderFlags["TpSlStrategy"] = 8] = "TpSlStrategy";
     //                     for close-position-order, this flag means ignore limitPrice and profitTokenId, and use extra.tpPrice, extra.slPrice, extra.tpslProfitTokenId instead.
     PositionOrderFlags[PositionOrderFlags["ShouldReachMinProfit"] = 4] = "ShouldReachMinProfit";
-})(PositionOrderFlags || (exports.PositionOrderFlags = PositionOrderFlags = {}));
+})(PositionOrderFlags = exports.PositionOrderFlags || (exports.PositionOrderFlags = {}));
 // do not forget toWei(PreMinedTokenTotalSupply)
 exports.PreMinedTokenTotalSupply = '1000000000000000000';
 var SpreadType;
 (function (SpreadType) {
     SpreadType[SpreadType["Ask"] = 0] = "Ask";
     SpreadType[SpreadType["Bid"] = 1] = "Bid";
-})(SpreadType || (exports.SpreadType = SpreadType = {}));
+})(SpreadType = exports.SpreadType || (exports.SpreadType = {}));
 //# sourceMappingURL=constants.js.map
