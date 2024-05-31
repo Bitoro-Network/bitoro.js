@@ -15,11 +15,14 @@
   "license": "GPL",
   "devDependencies": {
     "@types/jest": "^24.9.1",
-    "@types/node": "^14.18.12",
+    "@types/node": "^18.19.3",
     "jest": "^24.9.0",
-    "prettier": "^1.19.1",
+    "prettier": "^2.8.1",
     "ts-jest": "^24.3.0",
-    "typescript": "5.3.3"
+    "typescript": "5.4.2"
+  },
+  "resolutions": {
+    "@types/react": "^18.3.0"
   },
   "dependencies": {
     "bignumber.js": "^9.0.2",

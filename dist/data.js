@@ -70,8 +70,8 @@ function getReaderContract(signerOrProvider, contractAddress) {
     });
 }
 exports.getReaderContract = getReaderContract;
-function getSubAccounts(reader, subAccountIds, overrides = {}) {
-    return __awaiter(this, void 0, void 0, function* () {
+function getSubAccounts(reader_1, subAccountIds_1) {
+    return __awaiter(this, arguments, void 0, function* (reader, subAccountIds, overrides = {}) {
         const ret = {};
         const subAccounts = yield reader.getSubAccounts(subAccountIds, overrides);
         if (subAccounts.length !== subAccountIds.length) {
@@ -84,8 +84,8 @@ function getSubAccounts(reader, subAccountIds, overrides = {}) {
     });
 }
 exports.getSubAccounts = getSubAccounts;
-function getSubAccountsAndOrders(reader, subAccountIds, orderIds, overrides = {}) {
-    return __awaiter(this, void 0, void 0, function* () {
+function getSubAccountsAndOrders(reader_1, subAccountIds_1, orderIds_1) {
+    return __awaiter(this, arguments, void 0, function* (reader, subAccountIds, orderIds, overrides = {}) {
         const ret = { subAccounts: {}, orders: {} };
         const result = yield reader.getSubAccountsAndOrders(subAccountIds, orderIds, overrides);
         if (result.subAccounts.length !== subAccountIds.length) {
@@ -109,8 +109,8 @@ function getSubAccountsAndOrders(reader, subAccountIds, orderIds, overrides = {}
     });
 }
 exports.getSubAccountsAndOrders = getSubAccountsAndOrders;
-function getChainStorage(reader, overrides = {}) {
-    return __awaiter(this, void 0, void 0, function* () {
+function getChainStorage(reader_1) {
+    return __awaiter(this, arguments, void 0, function* (reader, overrides = {}) {
         const storage = yield reader.callStatic.getChainStorage(overrides);
         return {
             pool: _convertLiquidityPoolStorage(storage.pool),
