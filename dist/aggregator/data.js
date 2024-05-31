@@ -49,8 +49,8 @@ function getAggregatorReaderContract(signerOrProvider, contractAddress) {
     });
 }
 exports.getAggregatorReaderContract = getAggregatorReaderContract;
-function getGmxAdapterStorage(reader_1, chainId_1, gmxPositionManager_1, gmxPositionRouter_1, gmxOrderBook_1) {
-    return __awaiter(this, arguments, void 0, function* (reader, chainId, gmxPositionManager, gmxPositionRouter, gmxOrderBook, aggregatorTokenAddresses = [], gmxTokenAddresses = [], overrides = {}) {
+function getGmxAdapterStorage(reader, chainId, gmxPositionManager, gmxPositionRouter, gmxOrderBook, aggregatorTokenAddresses = [], gmxTokenAddresses = [], overrides = {}) {
+    return __awaiter(this, void 0, void 0, function* () {
         if (aggregatorTokenAddresses.length === 0) {
             const filtered = constants_1.GMX_TOKENS[chainId];
             aggregatorTokenAddresses = filtered.map(token => token.address);
@@ -175,8 +175,8 @@ function _parseAdapterCollaterals(chainId, aggregatorTokenAddresses, store) {
     }
     return ret;
 }
-function getAggregatorPositionsAndOrders(reader_1, chainId_1, gmxPositionRouter_1, gmxOrderBook_1, account_1) {
-    return __awaiter(this, arguments, void 0, function* (reader, chainId, gmxPositionRouter, gmxOrderBook, account, overrides = {}) {
+function getAggregatorPositionsAndOrders(reader, chainId, gmxPositionRouter, gmxOrderBook, account, overrides = {}) {
+    return __awaiter(this, void 0, void 0, function* () {
         const store = yield reader.getAggregatorSubAccountsOfAccount(gmxPositionRouter, gmxOrderBook, account, overrides);
         return {
             subAccounts: _parseGmxAdapterSubAccounts(account, chainId, store)
